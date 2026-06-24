@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: trip-history-service
+  datasource:
+    url: ${DATABASE_URL:jdbc:h2:mem:triphistory;DB_CLOSE_DELAY=-1;MODE=PostgreSQL}
+    username: ${DATABASE_USERNAME:sa}
+    password: ${DATABASE_PASSWORD:}
+    driver-class-name: ${DATABASE_DRIVER:org.h2.Driver}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+  h2:
+    console:
+      enabled: false
+
+server:
+  port: ${PORT:8080}
